@@ -9,7 +9,7 @@ python_version: "3.12"
 app_file: app.py
 pinned: false
 license: mit
-short_description: Talk through a job in Pidgin, send a priced quote on WhatsApp
+short_description: Talk a job through in Pidgin, send a quote on WhatsApp
 ---
 
 # 🧾 Kwota: talk your quote
