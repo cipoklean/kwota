@@ -1,0 +1,10 @@
+id,item,unit,price,aliases
+emulsion,Emulsion paint (20 L bucket),bucket,42000,emulsion|emulsion paint|paint bucket|bucket of paint
+satin,Satin paint (20 L bucket),bucket,58000,satin|silk|silk paint
+gloss,Gloss paint (4 L),gal,16000,gloss|oil paint|gloss paint
+primer,Primer / sealer (20 L),bucket,30000,primer|sealer|undercoat
+putty,Wall putty / screeding (25 kg bag),bag,9000,putty|screeding|screed|skim
+labour,Painting labour,sqm,1200,painting|labour|workmanship|paint am|my hand
+scrape,Scraping old paint,sqm,500,scrape|scraping|peel|peeling|remove old paint
+damp,Damp / water-stain treatment,room,15000,damp|water stain|stain|moisture|mould|mold
+ceiling,Ceiling painting labour,room,12000,ceiling|pop|p o p

@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+spike/recordings/
+spike/report.md
+*.pdf

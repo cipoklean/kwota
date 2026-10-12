@@ -1,0 +1,15 @@
+id,item,unit,price,aliases
+pipe_half,1/2 inch PVC pressure pipe,length,3800,half inch pipe|half inch|pipe|pvc pipe|pressure pipe
+pipe_one,1 inch PVC pressure pipe,length,6500,one inch pipe|one inch
+elbow,Elbow / bend fitting,pc,700,elbow|elbows|bend|bends
+tee,Tee fitting,pc,800,tee|t joint|tee joint
+tap,Pillar tap,pc,7500,tap|taps|pillar tap|tap head
+mixer,Kitchen mixer tap,pc,28000,mixer|mixer tap
+wc_set,WC (toilet) set supply,pc,95000,wc set|toilet set|new toilet|new wc
+wc_fix,WC installation labour,pc,20000,fix toilet|install toilet|wc|toilet|water closet
+cistern,Cistern repair kit,pc,9000,cistern|flush|flusher|ballcock
+leak,Leak repair labour,point,6000,leak|leaks|leaking|dey leak|drip|dripping
+sink,Sink installation labour,pc,15000,sink|wash hand basin|basin
+heater,Water heater installation,pc,25000,heater|water heater
+gum,PVC gum,pc,2500,gum|pvc gum|top bond
+workmanship,Workmanship (call-out),job,10000,workmanship|labour|call out|my hand work|transport

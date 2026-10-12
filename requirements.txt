@@ -1,0 +1,9 @@
+numpy
+pandas
+librosa
+transformers>=4.50
+accelerate
+pillow
+requests
+rapidfuzz
+fpdf2

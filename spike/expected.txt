@@ -1,0 +1,10 @@
+2 point, 3 length
+12 length, 8, 4
+180 sqft, 2 bucket, 1 bucket
+15 carton, 3 bag, 1 trip
+25 sqm, 25 sqm
+2 bag, 3 carton
+2, 5 carton
+2.5 bag, 6 room
+3 day, 50000
+13 length, 30, 13

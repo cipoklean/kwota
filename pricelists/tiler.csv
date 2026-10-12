@@ -1,0 +1,11 @@
+id,item,unit,price,aliases
+floor_tile,Floor tiles 60x60 (carton),carton,9800,floor tile|floor tiles|tiles|tile|sixty by sixty
+wall_tile,Wall tiles 30x60 (carton),carton,8500,wall tile|wall tiles|bathroom wall
+cement,Cement (50 kg bag),bag,10500,cement|dangote|bua
+sand,Sharp sand (tipper trip),trip,65000,sand|sharp sand|tipper
+tile_gum,Tile adhesive (bag),bag,7000,tile gum|adhesive|tile adhesive
+grout,Grout / tile cement (kg),pc,1500,grout|white cement|joint filler
+spacers,Tile spacers (pack),pc,1200,spacer|spacers
+tiling,Tiling labour,sqm,2500,tiling|lay tile|laying|labour|workmanship|my hand
+removal,Remove old tiles,sqm,800,remove old|break old|old tiles|removal
+skirting,Skirting labour,m,700,skirting
