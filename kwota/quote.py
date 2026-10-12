@@ -254,15 +254,18 @@ def validate(model_out: dict, transcript: str, prices: list[PriceItem]) -> tuple
 def draft(transcript: str, prices: list[PriceItem], photo_notes: str = "",
           generate=None) -> tuple[list[Line], str, str]:
     """Return (lines, scope sentence, which engine ran)."""
+    why = "no model configured"
     if generate is not None:
         try:
             out = parse_model_json(generate(SYSTEM, build_prompt(transcript, prices, photo_notes)))
             lines, scope = validate(out, transcript, prices)
             if lines:
                 return lines, scope, "gemma"
+            why = "Gemma matched no price-list items"
         except Exception as e:  # fall through to the rules
-            print(f"Gemma draft failed, using rules: {e}", flush=True)
-    return rule_lines(transcript, prices), "", "rules"
+            why = f"{type(e).__name__}: {str(e)[:160]}"
+            print(f"Gemma draft failed, using rules: {why}", flush=True)
+    return rule_lines(transcript, prices), "", f"rules ({why})"
 
 
 # ---------------------------------------------------------------- table glue

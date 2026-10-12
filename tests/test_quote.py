@@ -46,7 +46,7 @@ def test_gemma_cannot_invent_prices_or_quantities():
 
 def test_draft_falls_back_to_rules_when_model_breaks():
     lines, _, engine = quote.draft("four elbows", PLUMBER, generate=lambda s, p: "not json")
-    assert engine == "rules" and by_id(lines)["elbow"].qty == 4
+    assert engine.startswith("rules") and by_id(lines)["elbow"].qty == 4
     out = json.dumps({"items": [{"id": "elbow", "qty": 4, "said": "four elbows"}]})
     lines, _, engine = quote.draft("four elbows", PLUMBER, generate=lambda s, p: out)
     assert engine == "gemma"

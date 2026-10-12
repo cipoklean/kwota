@@ -83,7 +83,7 @@ def redraft(transcript, photos, prices_df):
     rows = pd.DataFrame(quote.to_rows(lines), columns=quote.COLUMNS)
     todo = quote.needs_attention(lines)
     notes = ("**Check these before sending:** " + "; ".join(todo)) if todo else "All quantities were heard clearly."
-    who = "Gemma" if engine == "gemma" else "the backup matcher (Gemma was unavailable)"
+    who = "Gemma" if engine == "gemma" else f"the backup matcher; Gemma was unavailable: {engine[7:-1]}"
     numbers = f"**Numbers I heard:** {heard_summary(find_quantities(transcript))}"
     return (transcript, numbers, rows, f"{notes}\n\n_Drafted by {who}._", scope,
             gr.update(visible=True))
