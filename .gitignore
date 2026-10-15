@@ -4,3 +4,36 @@ __pycache__/
 spike/recordings/
 spike/report.md
 *.pdf
+
+# secrets and local config
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets*.json
+credentials*.json
+.huggingface/
+hf_token*
+
+# local environments and editors
+.venv/
+venv/
+env/
+.vscode/
+.idea/
+.DS_Store
+*.log
+
+# generated quotes, uploads and model caches
+quotes/
+uploads/
+outputs/
+*.wav
+*.mp3
+*.ogg
+*.m4a
+*.opus
+.gradio/
+flagged/
+.cache/
