@@ -32,6 +32,12 @@ CHECK_QTY = "⚠ check qty"
 NO_NUMBER = "⚠ no number heard"
 CONVERTED = "⚠ converted"
 NEW_ITEM = "⚠ not on price list"
+SPOKEN_PRICE = "⚠ price you said"
+MONEY_MIN = 1000  # a bare "fifteen thousand" is naira, never fifteen thousand call-outs
+
+
+def _is_money(q: Quantity) -> bool:
+    return q.unit == "" and q.value >= MONEY_MIN
 
 
 @dataclass
@@ -106,6 +112,8 @@ def _fit(q: Quantity, unit: str) -> tuple[float, str] | None:
         return round(q.value * SQFT_TO_SQM, 1), CONVERTED
     if q.unit == "sqm" and unit == "sqft":
         return round(q.value / SQFT_TO_SQM, 1), CONVERTED
+    if _is_money(q):
+        return None
     if q.unit == "" and unit not in ("sqm", "sqft"):
         return q.value, CHECK_QTY
     if unit in ("bucket", "gal", "carton", "bag", "length", "pc") and q.unit == "pc":
@@ -149,6 +157,15 @@ def rule_lines(transcript: str, prices: list[PriceItem]) -> list[Line]:
         if p.id not in found:
             continue
         pos = found[p.id]
+        if p.unit == "job":
+            # "workmanship na fifty thousand": the artisan is naming his price for the job
+            money = [(qi, q) for qi, q in enumerate(qs)
+                     if qi not in used_qs and _is_money(q) and 0 <= q.pos - pos <= 6]
+            if money:
+                qi, q = money[0]
+                used_qs.add(qi)
+                lines.append(Line(p.id, p.item, 1, p.unit, q.value, SPOKEN_PRICE, q.words))
+                continue
         best = None
         for qi, q in enumerate(qs):
             if qi in used_qs:
@@ -236,6 +253,10 @@ def validate(model_out: dict, transcript: str, prices: list[PriceItem]) -> tuple
             qty = float(qty)
         except (TypeError, ValueError):
             lines.append(Line(p.id, p.item, 0, p.unit, p.price, NO_NUMBER, said))
+            continue
+        if qty >= MONEY_MIN and p.unit in COUNT_UNITS:
+            # Gemma read a naira amount as a quantity; keep the amount as the job price
+            lines.append(Line(p.id, p.item, 1, p.unit, qty, SPOKEN_PRICE, said))
             continue
         check = CHECK_QTY
         for q in heard:

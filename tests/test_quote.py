@@ -68,3 +68,19 @@ def test_pdf_and_whatsapp(tmp_path):
     assert "₦2,800" in text
     link = document.whatsapp_link(text, "0805 123 4567")
     assert link.startswith("https://wa.me/2348051234567?text=")
+
+
+def test_spoken_naira_amount_is_a_price_not_a_quantity():
+    prices = quote.load_pricelist("plumber")
+    lines = quote.rule_lines("Workmanship na fifteen thousand, and four elbows.", prices)
+    work = next(l for l in lines if l.id == "workmanship")
+    assert work.qty == 1 and work.price == 15000 and work.check == quote.SPOKEN_PRICE
+    elbow = next(l for l in lines if l.id == "elbow")
+    assert elbow.qty == 4
+
+
+def test_gemma_naira_quantity_becomes_price():
+    prices = quote.load_pricelist("plumber")
+    out = {"items": [{"id": "workmanship", "qty": 15000, "said": "fifteen thousand"}]}
+    lines, _ = quote.validate(out, "workmanship na fifteen thousand", prices)
+    assert lines[0].qty == 1 and lines[0].price == 15000
