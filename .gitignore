@@ -37,3 +37,6 @@ outputs/
 .gradio/
 flagged/
 .cache/
+
+# Mobile app
+mobile/node_modules/

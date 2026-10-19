@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kwota</string>
+    <string name="title_activity_main">Kwota</string>
+    <string name="package_name">com.cipoklean.kwota</string>
+    <string name="custom_url_scheme">com.cipoklean.kwota</string>
+</resources>

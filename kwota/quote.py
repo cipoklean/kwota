@@ -226,7 +226,7 @@ def build_prompt(transcript: str, prices: list[PriceItem], photo_notes: str = ""
 
 
 def parse_model_json(text: str) -> dict:
-    m = re.search(r"\{.*\}", text, re.S)
+    m = re.search(r"\{.*\}", text, re.DOTALL)
     if not m:
         raise ValueError("model returned no JSON")
     return json.loads(m.group(0))

@@ -1,0 +1,15 @@
+{
+  "name": "kwota-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kwota Android app: a thin native shell around the Kwota Hugging Face Space",
+  "license": "MIT",
+  "scripts": {
+    "sync": "cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.6.9",
+    "@capacitor/cli": "^7.6.9",
+    "@capacitor/core": "^7.6.9"
+  }
+}

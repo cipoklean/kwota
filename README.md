@@ -93,3 +93,10 @@ pytest   # numbers, matching, Gemma validation, PDF and WhatsApp link
 * [Gemma 3 12B IT](https://huggingface.co/google/gemma-3-12b-it) (ungated mirror `unsloth/gemma-3-12b-it`)
 
 MIT licensed. Sample prices are illustrative; every artisan sets their own.
+
+## Android app
+
+`mobile/` is a small Capacitor app that opens the Kwota Space full screen, with microphone and camera access for voice notes and job photos, quote PDFs saved to Downloads, and a Pidgin/English "no network" screen.
+
+- **Install:** download `kwota.apk` from the [android-latest release](https://github.com/cipoklean/kwota/releases/tag/android-latest) and open it on your phone (allow installs from your browser or file manager).
+- **Build:** GitHub Actions builds the APK on every push that touches `mobile/`. To build locally: `cd mobile && npm ci && npx cap sync android && cd android && ./gradlew assembleDebug`.

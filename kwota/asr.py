@@ -12,7 +12,8 @@ from functools import lru_cache
 
 import numpy as np
 
-from .gpu import device as _device, gpu
+from .gpu import device as _device
+from .gpu import gpu
 
 ASR_MODEL = os.getenv("KWOTA_ASR_MODEL", "Axiveri/NaijaVox-2.0")
 LANG_TOKEN = {"en": "<|en|>", "pcm": "<|pcm|>", "ha": "<|ha|>", "yo": "<|yo|>", "ig": "<|ig|>"}

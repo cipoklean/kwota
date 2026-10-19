@@ -1,0 +1,18 @@
+{
+  "appId": "com.cipoklean.kwota",
+  "appName": "Kwota",
+  "webDir": "www",
+  "server": {
+    "url": "https://cipoklean-kwota.hf.space",
+    "allowNavigation": [
+      "cipoklean-kwota.hf.space",
+      "*.hf.space",
+      "huggingface.co",
+      "*.huggingface.co"
+    ],
+    "errorPath": "offline.html"
+  },
+  "android": {
+    "backgroundColor": "#0f5132"
+  }
+}
